@@ -34,7 +34,7 @@ def generate_launch_description():
     #             )])
     # )
 
-
+    # # Gamepad ile verilen komutun gecikme nedeniyle sonra robota ulaşması durumunda robot tehlikeli manevra yapabilir. Bu nedenle twist zaman basarak robotun kendisine belli bir süreden sonra ulaşan mesajları dikkate almamasını sağlar. Dev machine ile robotun saati senkronize edilmelidir.
     twist_mux_params = os.path.join(get_package_share_directory(package_name),'config','twist_mux.yaml')
     twist_mux = Node(
             package="twist_mux",
@@ -107,7 +107,7 @@ def generate_launch_description():
     # Launch them all!
     return LaunchDescription([
         rsp,
-        # joystick,
+        #joystick,
         twist_mux,
         delayed_controller_manager,
         delayed_diff_drive_spawner,

@@ -24,7 +24,7 @@ def generate_launch_description():
             parameters=[joy_params, {'use_sim_time': use_sim_time}],
             remappings=[('/cmd_vel','/cmd_vel_joy')]
          )
-
+    # Gamepad ile verilen komutun gecikme nedeniyle sonra robota ulaşması durumunda robot tehlikeli manevra yapabilir. Bu nedenle twist zaman basarak robotun kendisine belli bir süreden sonra ulaşan mesajları dikkate almamasını sağlar. Dev machine ile robotun saati senkronize edilmelidir.
     # twist_stamper = Node(
     #         package='twist_stamper',
     #         executable='twist_stamper',
@@ -36,9 +36,9 @@ def generate_launch_description():
 
     return LaunchDescription([
         DeclareLaunchArgument(
-            'use_sim_time',
-            default_value='false',
-            description='Use sim time if true'),
+           'use_sim_time',
+           default_value='false',
+           description='Use sim time if true'),
         joy_node,
         teleop_node,
         # twist_stamper       
