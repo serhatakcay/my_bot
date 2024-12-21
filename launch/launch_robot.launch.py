@@ -28,11 +28,11 @@ def generate_launch_description():
                 )]), launch_arguments={'use_sim_time': 'false', 'use_ros2_control': 'true'}.items()
     )
 
-    # joystick = IncludeLaunchDescription(
-    #             PythonLaunchDescriptionSource([os.path.join(
-    #                 get_package_share_directory(package_name),'launch','joystick.launch.py'
-    #             )])
-    # )
+    joystick = IncludeLaunchDescription(
+                PythonLaunchDescriptionSource([os.path.join(
+                    get_package_share_directory(package_name),'launch','joystick.launch.py'
+                )])
+    )
 
     # # Gamepad ile verilen komutun gecikme nedeniyle sonra robota ulaşması durumunda robot tehlikeli manevra yapabilir. Bu nedenle twist zaman basarak robotun kendisine belli bir süreden sonra ulaşan mesajları dikkate almamasını sağlar. Dev machine ile robotun saati senkronize edilmelidir.
     twist_mux_params = os.path.join(get_package_share_directory(package_name),'config','twist_mux.yaml')
